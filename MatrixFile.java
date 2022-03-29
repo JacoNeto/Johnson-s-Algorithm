@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+// Classe que trata as operações de leitura e escrita de matrizes em arquivos txt
+
 public class MatrixFile {
 	public static int[][] Read() throws FileNotFoundException {
 		Scanner sc = new Scanner(new BufferedReader(new FileReader("src/assets/adjacente_original.txt")));

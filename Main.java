@@ -3,13 +3,12 @@ import java.io.FileNotFoundException;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		try {
-			
-			int[][] matrizAdjacente = MatrixFile.Read();
-			JohnsonAlgorithm.calc(matrizAdjacente);
+			// lê matriz de custo do arquivo txt
+			int[][] matrizCusto = MatrixFile.Read();
+			// executa o algoritmo de Johnson 
+			JohnsonAlgorithm.calc(matrizCusto);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
