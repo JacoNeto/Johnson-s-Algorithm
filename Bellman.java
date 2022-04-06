@@ -1,14 +1,14 @@
 
 public class Bellman {
 	public static int[] calc (int[][] matriz, int vertices, int arestas, int src) {
-		// Initialize distance of all vertices as infinite.
+		// Inicializa todas as disatancias como infinito
 	    int []dis = new int[vertices];
 	    for (int i = 0; i < vertices; i++)
 	        dis[i] = Integer.MAX_VALUE;
 	 
-	    // initialize distance of source as 0
+	    // inicializa origem como 0
 	    dis[src] = 0;
-	 
+	    
 	    // Relax all edges |V| - 1 times. A simple
 	    // shortest path from src to any other
 	    // vertex can have at-most |V| - 1 edges

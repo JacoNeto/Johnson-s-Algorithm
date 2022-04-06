@@ -10,6 +10,7 @@ public class JohnsonAlgorithm {
 
 		String str = ""; // saida do programa
 		String straux = ""; // saida auxiliar do programa
+		
 
 		int[][] matrizAdjacente = matrizCusto;
 
@@ -38,47 +39,20 @@ public class JohnsonAlgorithm {
 		}
 		
 		// calcula os caminhos baseados em q
-		int[] distOrigem = Bellman.calc(matrizAux, vertices + 1, auxArestas, vertices);
+		int[] distOrigem = Bellman.calc(matrizAux, vertices + 1, auxArestas, 0);
 		
+		// mostra no console distancias do vetor
 		for(int i = 0; i < distOrigem.length; i++) {
 			System.out.print(distOrigem[i] + " ");
 		}
 		
+		// reajusta os pesos da matriz
 		for(int i = 0; i < arestas; i ++) {
 				matrizAdjacente[i][2] = matrizAdjacente[i][2] + distOrigem[matrizAdjacente[i][0]] - distOrigem[matrizAdjacente[i][1]];  
 		}
 		
-		// a matriz adjacente é uma matriz quadrática com o número de vértices
-		// da matriz de custo
-
-		// matrizAdjacente = new int[vertices][vertices];
-		/*matrizAdjacente = Bellman.calc(matrizCusto, vertices, arestas, 0);
-
-		// preenche a matriz adjacente com os valores da matriz de custo
-		for (int k = 0; k < arestas; k++) {
-			matrizAdjacente[matrizCusto[k][0] - 1][matrizCusto[k][1] - 1] = matrizCusto[k][2];
-		}
-
-		for (int i = 0; i < vertices; i++) {
-			for (int j = 0; j < vertices; j++) {
-				// Se não há aresta, usa valor maximo/infinito
-				if (matrizAdjacente[i][j] == 0 && i != j) {
-					System.out.println("slmfnfdkjjgn " + i + " " + j);
-					matrizAdjacente[i][j] = Integer.MAX_VALUE;
-				}
-			}
-		}
-
-		for (int i = 0; i < vertices; i++) {
-			for (int j = 0; j < vertices; j++) {
-				for (int k = 0; k < vertices; k++) {
-					// Obtem caminho minimo de j e k atraves de i
-					matrizAdjacente[j][k] = Utils.valorMinimo(matrizAdjacente[j][k],
-							matrizAdjacente[j][i] + matrizAdjacente[i][k]);
-				}
-			}
-		}
-		*/
+		
+		// manda matriz adjacente com os novos pesos pro arquivo
 		str += "Matriz Adjacente resultante\n\n";
 
 		for (int i = 0; i < arestas; i++) {
@@ -96,6 +70,8 @@ public class JohnsonAlgorithm {
 			e.printStackTrace();
 		}
 		
+		
+		// manda a primeira matriz auxiliar pro arquivo
 		for (int i = 0; i < auxArestas; i++) {
 			for (int j = 0; j < 3; j++) {
 				if (matrizAux[i][j] != Integer.MAX_VALUE) {
@@ -110,5 +86,7 @@ public class JohnsonAlgorithm {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		/// Djkstra.calc()
 	}
 }
