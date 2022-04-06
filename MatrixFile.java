@@ -39,8 +39,8 @@ public class MatrixFile {
 		return myArray;
 	}
 	
-	public static void Write(String str) throws IOException {
-		BufferedWriter writer = new BufferedWriter(new FileWriter("src/assets/adjacente_resultante.txt"));
+	public static void Write(String str, String path) throws IOException {
+		BufferedWriter writer = new BufferedWriter(new FileWriter(path));
 	    writer.write(str);
 	    
 	    writer.close();
