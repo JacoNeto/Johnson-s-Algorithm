@@ -10,7 +10,6 @@ public class JohnsonAlgorithm {
 
 		String str = ""; // saida do programa
 		String straux = ""; // saida auxiliar do programa
-		
 
 		int[][] matrizAdjacente = matrizCusto;
 
